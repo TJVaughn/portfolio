@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
 import todoListImg from './logos/todo-list.png'
@@ -7,7 +7,6 @@ import todoListImg2 from './logos/todo-list-2.png'
 
 export default function SceneTwo() {
 
-    const [fixed, setFixed] = useState(false)
     let animOptions = {
         scrollTrigger: {
             start: "center 30%", 
@@ -177,7 +176,7 @@ export default function SceneTwo() {
             
         // })
         
-    }, [])
+    })
     
     return(
         <div style={{color: "#fff"}} className="container scene-2">
@@ -192,11 +191,11 @@ export default function SceneTwo() {
             <div >
             
                 <div className="grid-80-20 container">
-                    <img className="image" id="todo-list-img" src={todoListImg}  />
+                    <img alt="main projects page" className="image" id="todo-list-img" src={todoListImg}  />
                     <h3 className="description">Create a New Project</h3>
                 </div>
                 <div className="grid-80-20 container">
-                    <img className="image" id="todo-list-img-2" src={todoListImg2}  />
+                    <img alt="single project page" className="image" id="todo-list-img-2" src={todoListImg2}  />
                     <h3 className="description">Add categories and new tasks to the project</h3>
                 </div>
                 <div className="end-scene-2"></div>
