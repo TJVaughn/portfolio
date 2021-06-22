@@ -18,7 +18,7 @@ export default function SceneTwo() {
             scrub: 2,
             pin: true,
             // toggleActions: "restart pause reverse pause",
-            markers: true
+            // markers: true
         },
         x:0,
         scale: 1
@@ -104,7 +104,7 @@ export default function SceneTwo() {
                 scrub: 1,
                 start: "top 50%", 
                 end: "top 50%",
-                markers: true,
+                // markers: true,
                 trigger: ".end-scene-1",
                 endTrigger: ".white"
             },
