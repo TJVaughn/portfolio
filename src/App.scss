@@ -1,0 +1,80 @@
+.box {
+  display: block;
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  margin: 300px 0;
+}
+.green {
+  background-color: green;
+}
+.blue {
+  background-color: blue;
+}
+.orange {
+  background-color: orange;
+}
+.yellow {
+  background-color:yellow;
+}
+.white {
+  background-color:#fff;
+}
+.purple{
+  background-color:purple;
+}
+.logo {
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+}
+.scene-1 {
+  text-align: center;
+  margin-top: 200px;
+  margin-bottom: 400px;
+  // padding-top: 200px;
+  color: #ababab;
+  height: 100%;
+  position: relative;
+  h1 {
+    margin: 50px 0;
+    color: #fff;
+    font-size: 3em;
+  }
+}
+.scene-2 {
+  text-align: center;
+  margin-bottom: 100px;
+
+}
+#todo-list-img {
+  width: 100%;
+  max-width: 1000px;
+}
+#scrollElement {
+  position: absolute;
+  top: 0;
+}
+// #scrollElement-2 {
+//   position: absolute;
+//   top: 1000px;
+// }
+.grid-80-20 {
+  display: grid;
+  grid-template-columns: 80% 20%;
+}
+.image {
+  z-index: 0;
+  width: 100%;
+}
+.title-2 {
+  z-index: 500;
+}
+.t2-title-block {
+  // position: fixed;
+  top: 10%;
+  z-index: 500;
+  
+  padding: 50px;
+  border-radius: 20px;
+}
