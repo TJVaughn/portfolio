@@ -9,15 +9,15 @@ export default function ScrollComponent() {
             <SceneOne />
             <SceneTwo />
             {/* scroll: {this.props.scrollValue} */}
-            <div className="orange"></div>
+            {/* <div className="orange"></div> */}
 
-            <div className="box blue"></div>
+            {/* <div className="box blue"></div> */}
             <div className="end-scene-2"></div>
 
-            <div className="box green"></div>
-            <div className="box yellow"></div>
-            <div className="box white"></div>
-            <div className="box purple"></div>
+            {/* <div className="box green"></div> */}
+            {/* <div className="box yellow"></div> */}
+            {/* <div className="box white"></div> */}
+            {/* <div className="box purple"></div> */}
         </div>
     )
 }

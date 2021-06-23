@@ -1,3 +1,4 @@
+
 .cloud:first-of-type {
     width: 100px;
     bottom: 0;
@@ -27,7 +28,8 @@
     width: 225px;
     bottom: 3%;
     left: -15%;
-}.cloud:nth-of-type(7){
+}
+.cloud:nth-of-type(7){
     width: 175px;
     bottom: 24%;
     left: 0%;
@@ -36,6 +38,24 @@
     position: absolute;
     z-index: 0;
 }
+
+// for mobile
+@media screen and (max-width: 450px) {
+    .cloud {
+        position: relative;
+    }
+    .cloud:nth-of-type(6){
+        width: 225px;
+        bottom: 3%;
+        left: -100%;
+    }
+    .cloud:nth-of-type(2){
+        width: 150px;
+        bottom: 10%;
+        left: -75%;
+    }
+}
+
 
 // .cloud-container {
 //     // display: flex;\

@@ -30,6 +30,9 @@
 }
 .scene-1 {
   text-align: center;
+  background-color: #21242922;
+  z-index: 500;
+  border-radius: 10px;
   margin-top: 200px;
   margin-bottom: 400px;
   // padding-top: 200px;
@@ -77,4 +80,18 @@
   
   padding: 50px;
   border-radius: 20px;
+}
+.description {
+  color: orange;
+}
+#screen-hw {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  color: rgb(0, 177, 0);
+}
+
+//For Mobile
+@media screen and (max-width: 450px){
+
 }

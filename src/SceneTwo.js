@@ -4,9 +4,10 @@ import ScrollTrigger from 'gsap/ScrollTrigger'
 import todoListImg from './logos/todo-list.png'
 import Cloud from './Cloud'
 import todoListImg2 from './logos/todo-list-2.png'
+import useWindowDimensions from './hooks/useWindowDimenstions'
 
 export default function SceneTwo() {
-
+    const { height, width } = useWindowDimensions()
     let animOptions = {
         scrollTrigger: {
             start: "center 30%", 
@@ -24,7 +25,7 @@ export default function SceneTwo() {
         scale: 1
     }
     const animElements = [
-        '.title-2', '.secondary', '.third', '#todo-list-img', '.description'
+        '.title-2', '.secondary', '.third', '.image', '.description'
     ]
     
 
@@ -97,20 +98,30 @@ export default function SceneTwo() {
         //     },
         //     y: 100
         // })
-        gsap.to('.cloud', {
+        const cloudsAnim = {
             scrollTrigger:{
                 pin: true,
                 pinSpacing: false,
                 scrub: 1,
-                start: "top 50%", 
-                end: "top 50%",
-                // markers: true,
+                start: "top 80%", 
+                end: "top 80%",
+                markers: true,
                 trigger: ".end-scene-1",
-                endTrigger: ".white"
+                // endTrigger: ".white"
+                endTrigger: '.end-scene-2'
             },
             y: 0,
             x: 1000
-        })
+        }
+        if(width < 450){
+            gsap.fromTo('.cloud', {x: -1100}, cloudsAnim)
+            console.log(width)
+            console.log(height)
+        } else {
+            gsap.to('.cloud', cloudsAnim)
+        }
+        // gsap.to('.cloud', cloudsAnim)
+
         // t2.fromTo('.title-2', fromObj, animOptions)
         // t2.fromTo('.secondary', fromObj, animOptions)
         // t2.fromTo('.third', fromObj, animOptions)
@@ -151,7 +162,7 @@ export default function SceneTwo() {
         
 
         for(let e = 0; e < animElements.length; e++){
-            animOptions.scrollTrigger.scrub = e
+            animOptions.scrollTrigger.scrub = e + 1
             if(e > 0) {
                 // animOptions.scrollTrigger.trigger = animElements[e -1]
                 // animOptions.scrollTrigger.end = "+=1000px"
@@ -190,16 +201,17 @@ export default function SceneTwo() {
                 
             <div >
             
-                <div className="grid-80-20 container">
+                <div className=" container">
+                    <h2 className="description">Create a New Project</h2>
                     <img alt="main projects page" className="image" id="todo-list-img" src={todoListImg}  />
-                    <h3 className="description">Create a New Project</h3>
                 </div>
-                <div className="grid-80-20 container">
+                <div className=" container">
+                    <h2 className="description">Add categories and new tasks to the project</h2>
                     <img alt="single project page" className="image" id="todo-list-img-2" src={todoListImg2}  />
-                    <h3 className="description">Add categories and new tasks to the project</h3>
                 </div>
-                <div className="end-scene-2"></div>
             </div>
+            <div className="end-scene-2"></div>
+            <div id="screen-hw">H:{height},W:{width}</div>
         </div>
     )
 }
