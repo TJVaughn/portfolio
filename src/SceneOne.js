@@ -23,6 +23,7 @@ export default function SceneOne() {
                 // endTrigger: ".orange",
                 scrub: 1,
                 pin: true,
+                pinSpacing: false
                 // toggleActions: "restart pause reverse pause",
                 // markers: true
             },

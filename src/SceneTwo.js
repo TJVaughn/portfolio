@@ -27,11 +27,69 @@ export default function SceneTwo() {
     const animElements = [
         '.title-2', '.secondary', '.third', '.image', '.description'
     ]
-    
+    const cloudsAnim = {
+        scrollTrigger:{
+            pin: true,
+            pinSpacing: false,
+            scrub: 3,
+            start: "top 80%", 
+            end: "top 80%",
+            // markers: true,
+            trigger: ".end-scene-1",
+            endTrigger: ".marker"
+            // endTrigger: '.end-scene-2'
+        },
+        y: 0,
+        x: 1000
+    }
+    const animations = () => {
+        gsap.registerPlugin(ScrollTrigger)
+        if(width < 450){
+            gsap.fromTo('.cloud', {x: -1100}, cloudsAnim)
+        } else {
+            gsap.to('.cloud', cloudsAnim)
+        }
+
+        for(let e = 0; e < animElements.length; e++){
+            //offset scrub
+            animOptions.scrollTrigger.scrub = e + 1
+            gsap.fromTo(animElements[e], {x: -1000, scale: 0}, animOptions)
+        }
+    }
 
     useEffect(() => {
         //component mounts, run this
-        gsap.registerPlugin(ScrollTrigger)
+        animations()
+
+    })
+    
+    return(
+        <div style={{color: "#fff"}} className="container scene-2">
+            <Cloud/> 
+            
+            <div className="t2-title-block" >
+                <h1 className="title-2">Project One</h1>
+                <h2 className="secondary">To Do List Application</h2>
+                <h3 className="third">MongoDB, ExpressJS, ReactJS, NodeJS</h3>
+            </div>
+                
+            <div >
+            
+                {/* <div className="container"> */}
+                    <h2 className="description">Create a New Project</h2>
+                    <img alt="main projects page" className="image" id="todo-list-img" src={todoListImg}  />
+                {/* </div> */}
+                {/* <div className="container"> */}
+                    <h2 className="description">Add categories and new tasks to the project</h2>
+                    <img alt="single project page" className="image" id="todo-list-img-2" src={todoListImg2}  />
+                {/* </div> */}
+            </div>
+            <div id="screen-hw">H:{height},W:{width}</div>
+            <div className="end-scene-2"></div>
+        </div>
+    )
+}
+
         // let fromObj = {x: -500, scale: 0}
         // let toObj = {x: 0, scale: 1}
         // let t2 = gsap.timeline(
@@ -98,29 +156,8 @@ export default function SceneTwo() {
         //     },
         //     y: 100
         // })
-        const cloudsAnim = {
-            scrollTrigger:{
-                pin: true,
-                pinSpacing: false,
-                scrub: 1,
-                start: "top 80%", 
-                end: "top 80%",
-                markers: true,
-                trigger: ".end-scene-1",
-                // endTrigger: ".white"
-                endTrigger: '.end-scene-2'
-            },
-            y: 0,
-            x: 1000
-        }
-        if(width < 450){
-            gsap.fromTo('.cloud', {x: -1100}, cloudsAnim)
-            console.log(width)
-            console.log(height)
-        } else {
-            gsap.to('.cloud', cloudsAnim)
-        }
-        // gsap.to('.cloud', cloudsAnim)
+
+                // gsap.to('.cloud', cloudsAnim)
 
         // t2.fromTo('.title-2', fromObj, animOptions)
         // t2.fromTo('.secondary', fromObj, animOptions)
@@ -159,17 +196,8 @@ export default function SceneTwo() {
             // x: 0,
             // scale: 1
         // })
-        
 
-        for(let e = 0; e < animElements.length; e++){
-            animOptions.scrollTrigger.scrub = e + 1
-            if(e > 0) {
-                // animOptions.scrollTrigger.trigger = animElements[e -1]
-                // animOptions.scrollTrigger.end = "+=1000px"
-            }
-            gsap.fromTo(animElements[e], {x: -1000, scale: 0}, animOptions)
-        }
-        // t2.tweenTo('.title-2', {
+                // t2.tweenTo('.title-2', {
         //     ScrollTrigger: {
         //         pin: true,
         //         start: "top 30%",
@@ -187,31 +215,3 @@ export default function SceneTwo() {
             
         // })
         
-    })
-    
-    return(
-        <div style={{color: "#fff"}} className="container scene-2">
-            <Cloud/> 
-            
-            <div className="t2-title-block" >
-                <h1 className="title-2">Project One</h1>
-                <h2 className="secondary">To Do List Application</h2>
-                <h3 className="third">MongoDB, ExpressJS, ReactJS, NodeJS</h3>
-            </div>
-                
-            <div >
-            
-                <div className=" container">
-                    <h2 className="description">Create a New Project</h2>
-                    <img alt="main projects page" className="image" id="todo-list-img" src={todoListImg}  />
-                </div>
-                <div className=" container">
-                    <h2 className="description">Add categories and new tasks to the project</h2>
-                    <img alt="single project page" className="image" id="todo-list-img-2" src={todoListImg2}  />
-                </div>
-            </div>
-            <div className="end-scene-2"></div>
-            <div id="screen-hw">H:{height},W:{width}</div>
-        </div>
-    )
-}
